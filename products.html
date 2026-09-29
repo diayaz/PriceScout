@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Created by: Dias Zhumakhan | Page: Products (products.html) | Assignment 3 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PriceScout - Compare Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a href="#main" class="visually-hidden-focusable position-absolute top-0 start-0 bg-warning text-dark p-2 m-2 rounded">Skip to main content</a>
+
+  <!-- ===== Task 5: Bootstrap Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-success brand-bg py-3" data-bs-theme="dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fs-4" href="index.html">Price<span>Scout</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto gap-lg-3 mt-3 mt-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="responsive.html">Media Queries</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page layout: sidebar (col-lg-3) + main content (col-lg-9).
+       Replaces the custom CSS Grid layout from Assignment 2. -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <aside class="col-12 col-lg-3 col-xl-2 bg-cream border-end py-4 px-3 px-lg-4">
+        <div class="sticky-lg-top pt-lg-3">
+          <h2 class="h6 text-uppercase fw-bold mb-3">On this page</h2>
+          <nav class="list-group" aria-label="Page sections">
+            <a href="#steps" class="list-group-item list-group-item-action">How it works</a>
+            <a href="#table" class="list-group-item list-group-item-action">Price table</a>
+            <a href="#gallery" class="list-group-item list-group-item-action">Gallery</a>
+            <a href="#deals" class="list-group-item list-group-item-action">Best deals</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main id="main" class="col-12 col-lg-9 col-xl-10 px-3 px-sm-4 px-lg-5 py-4">
+
+        <section class="mb-5">
+          <h1 class="fw-bold mb-2">Compare Prices</h1>
+          <p class="lead mb-0">Pick a category, then check the same item across four stores below.</p>
+        </section>
+
+        <!-- ===== Task 3: two columns (col-lg-6) ===== -->
+        <section id="steps" class="mb-5">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-6">
+              <h2 class="mb-3">How the comparison works</h2>
+              <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Choose a product category (electronics, clothing or sneakers).</li>
+                <li class="list-group-item">We check the listed price on each of the four stores.</li>
+                <li class="list-group-item">We highlight the lowest price in the table.</li>
+                <li class="list-group-item">You click through to buy from your preferred store.</li>
+              </ol>
+            </div>
+            <div class="col-12 col-lg-6">
+              <img src="images/sra.jpg" alt="Row of product categories: phone, jacket, sneakers" class="img-fluid rounded-3 rounded-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Price table + Task 6: button group filter ===== -->
+        <section id="table" class="mb-5">
+          <h2 class="mb-3">Sample comparison table</h2>
+
+          <div class="btn-group flex-wrap mb-3" role="group" aria-label="Filter table by category">
+            <button type="button" class="btn btn-outline-primary active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="electronics" aria-pressed="false">Electronics</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="clothing" aria-pressed="false">Clothing</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="sneakers" aria-pressed="false">Sneakers</button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered align-middle price-table bg-white mb-2">
+              <caption class="small">Lowest price in each row is shown in <strong>bold green</strong>.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Amazon</th>
+                  <th scope="col">Pinduoduo</th>
+                  <th scope="col">Poizon</th>
+                  <th scope="col">Official Site</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-category="electronics">
+                  <th scope="row">Wireless Earbuds</th>
+                  <td>$59</td><td class="best-price">$34</td><td>$45</td><td>$79</td>
+                </tr>
+                <tr data-category="electronics">
+                  <th scope="row">Smartwatch</th>
+                  <td class="best-price">$129</td><td>$135</td><td>$149</td><td>$199</td>
+                </tr>
+                <tr data-category="sneakers">
+                  <th scope="row">Running Sneakers</th>
+                  <td>$120</td><td>$95</td><td class="best-price">$88</td><td>$150</td>
+                </tr>
+                <tr data-category="clothing">
+                  <th scope="row">Denim Jacket</th>
+                  <td class="best-price">$40</td><td>$42</td><td>$55</td><td>$90</td>
+                </tr>
+                <tr data-category="clothing">
+                  <th scope="row">Hoodie</th>
+                  <td>$38</td><td class="best-price">$22</td><td>$31</td><td>$65</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="contact.html" class="btn btn-secondary btn-sm">Track a product</a>
+        </section>
+
+        <!-- ===== Task 7: Bootstrap Carousel (9 images) inside the grid ===== -->
+        <section id="gallery" class="mb-5">
+          <h2 class="mb-3">Product Gallery</h2>
+          <div class="row g-4">
+            <div class="col-12 col-lg-8">
+              <div id="productCarousel" class="carousel slide rounded-3 overflow-hidden shadow-sm" data-bs-ride="carousel" aria-label="Product photos">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1: Wireless Earbuds"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" aria-label="Slide 2: Running Sneakers"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2" aria-label="Slide 3: Denim Jacket"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="3" aria-label="Slide 4: Smartphone"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="4" aria-label="Slide 5: Hoodie"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="5" aria-label="Slide 6: Backpack"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="6" aria-label="Slide 7: Sunglasses"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="7" aria-label="Slide 8: Smartwatch"></button>
+                  <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="8" aria-label="Slide 9: Sneaker Close-up"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/ear.jpg" class="d-block w-100" alt="Wireless earbuds product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Wireless Earbuds</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/sneakers.jpg" class="d-block w-100" alt="Running sneakers product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Running Sneakers</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/denimjeans.jpg" class="d-block w-100" alt="Denim jacket product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Denim Jacket</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/smartphone.jpg" class="d-block w-100" alt="Smartphone product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Smartphone</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/hoodie.jpg" class="d-block w-100" alt="Hoodie product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Hoodie</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/backpack.jpg" class="d-block w-100" alt="Backpack product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Backpack</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/sun.jpg" class="d-block w-100" alt="Sunglasses product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Sunglasses</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/watch.jpg" class="d-block w-100" alt="Smartwatch product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Smartwatch</h3></div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/look.jpg" class="d-block w-100" alt="Sneaker close-up product photo">
+                    <div class="carousel-caption d-none d-md-block p-2"><h3 class="h5 mb-0">Sneaker Close-up</h3></div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+              <div class="card h-100 p-4 bg-cream border-0">
+                <h3 class="h5">Items we track</h3>
+                <p>Nine popular products we compare every week across all four stores.</p>
+                <p class="small mb-4">Use the arrows or the dots under the photo to switch slides.</p>
+                <div class="d-grid gap-2 mt-auto">
+                  <a href="#table" class="btn btn-primary">Back to price table</a>
+                  <a href="contact.html" class="btn btn-outline-primary">Get alerts for an item</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Task 8: card-group ===== -->
+        <section id="deals" class="mb-4">
+          <h2 class="mb-3">Best deals this week</h2>
+          <div class="card-group">
+            <article class="card">
+              <img src="images/ear.jpg" class="card-img-top" alt="Wireless earbuds">
+              <div class="card-body">
+                <h3 class="card-title h5">Wireless Earbuds</h3>
+                <p class="card-text">Cheapest on Pinduoduo — <span class="best-price">$34</span>, that's 57% less than the official site.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img src="images/sneakers.jpg" class="card-img-top" alt="Running sneakers">
+              <div class="card-body">
+                <h3 class="card-title h5">Running Sneakers</h3>
+                <p class="card-text">Cheapest on Poizon — <span class="best-price">$88</span>, with an authenticity check included.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img src="images/denimjeans.jpg" class="card-img-top" alt="Denim jacket">
+              <div class="card-body">
+                <h3 class="card-title h5">Denim Jacket</h3>
+                <p class="card-text">Cheapest on Amazon — <span class="best-price">$40</span>, fast shipping.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <footer class="bg-success brand-bg text-white text-center py-4">
+    <div class="container px-3 px-sm-2">
+      <p class="mb-0 small">&copy; 2026 PriceScout Team. Team members: Dias Zhumakhan, Agzam Duysenov.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

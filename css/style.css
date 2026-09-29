@@ -1,0 +1,190 @@
+/* =========================================================
+   PriceScout — Assignment 3 (Bootstrap pages)
+   Team: Dias Zhumakhan, Agzam Duysenov
+
+   Rule for this file: NO custom margin / padding.
+   All spacing is done with Bootstrap spacing utilities
+   (m-*, p-*, g-*, mt-lg-*, px-sm-* ...) in the HTML.
+   This file only sets brand colors, fonts, font sizes,
+   and small visual effects.
+   ========================================================= */
+
+/* ---------- 1. Brand colors (CSS variables) ---------- */
+:root {
+  --ps-dark: #14432F;      /* dark green  */
+  --ps-green: #1E7A5F;     /* main green  */
+  --ps-gold: #D4A017;      /* accent gold */
+  --ps-cream: #EFEDE4;     /* light background */
+  --ps-text: #1F2937;      /* body text   */
+  --ps-border: #E3E1DA;
+
+  /* Tell Bootstrap to use our fonts / colors */
+  --bs-body-font-family: 'Inter', sans-serif;
+  --bs-body-color: var(--ps-text);
+  --bs-body-bg: #FAFAF8;
+  --bs-link-color-rgb: 30, 122, 95;
+  --bs-link-hover-color-rgb: 20, 67, 47;
+}
+
+h1, h2, h3, h4, h5,
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+  color: var(--ps-dark);
+}
+
+/* ---------- 2. Responsive typography (Media Queries) ----------
+   Mobile first: small -> medium (tablet) -> large (desktop)      */
+body { font-size: 0.95rem; }
+h1   { font-size: 1.75rem; }
+h2   { font-size: 1.4rem; }
+.lead { font-size: 1.05rem; }
+
+/* Tablet: 768px and wider */
+@media (min-width: 768px) {
+  body  { font-size: 1rem; }
+  h1    { font-size: 2.25rem; }
+  h2    { font-size: 1.65rem; }
+  .lead { font-size: 1.15rem; }
+}
+
+/* Desktop: 992px and wider */
+@media (min-width: 992px) {
+  body  { font-size: 1.05rem; }
+  h1    { font-size: 2.75rem; }
+  h2    { font-size: 1.9rem; }
+  .lead { font-size: 1.25rem; }
+}
+
+/* ---------- 3. Navbar & footer colors ----------
+   We keep Bootstrap's own classes (bg-success, navbar-dark ...)
+   and only re-tint Bootstrap's CSS variables to our brand green. */
+.brand-bg {
+  --bs-success-rgb: 20, 67, 47;          /* bg-success -> dark green */
+}
+
+.navbar.brand-bg {                       /* beats Bootstrap's dark-theme defaults */
+  --bs-navbar-color: #F4F1EA;
+  --bs-navbar-hover-color: var(--ps-gold);
+  --bs-navbar-active-color: var(--ps-gold);
+}
+
+.navbar-brand { color: #FFFFFF; font-weight: 700; }
+.navbar-brand span,
+.text-gold { color: var(--ps-gold); }
+
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--ps-gold);
+}
+
+/* ---------- 4. Buttons: re-tint Bootstrap button variables ---------- */
+.btn-primary {
+  --bs-btn-bg: var(--ps-green);
+  --bs-btn-border-color: var(--ps-green);
+  --bs-btn-hover-bg: var(--ps-dark);
+  --bs-btn-hover-border-color: var(--ps-dark);
+  --bs-btn-active-bg: var(--ps-dark);
+  --bs-btn-active-border-color: var(--ps-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--ps-green);
+  --bs-btn-border-color: var(--ps-green);
+  --bs-btn-hover-bg: var(--ps-green);
+  --bs-btn-hover-border-color: var(--ps-green);
+  --bs-btn-active-bg: var(--ps-dark);
+  --bs-btn-active-border-color: var(--ps-dark);
+}
+
+/* Visible keyboard focus (accessibility) */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.45);
+}
+
+/* ---------- 5. Sections ---------- */
+.bg-cream { background-color: var(--ps-cream); }
+
+.hero-img,
+.rounded-img {
+  border: 1px solid var(--ps-border);
+}
+
+/* ---------- 6. Cards ---------- */
+.card {
+  --bs-card-bg: #FFFFFF;
+  border-color: var(--ps-border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(20, 67, 47, 0.18);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ---------- 7. Carousel ---------- */
+.carousel-item img {
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+  .carousel-item img { height: 240px; }
+}
+
+/* dark strip behind caption for good contrast;
+   lifted up so it does not cover the indicators */
+.carousel-caption {
+  bottom: 2.75rem;
+  background-color: rgba(20, 67, 47, 0.8);
+  border-radius: 0.5rem;
+}
+
+.carousel-caption h3 { color: #FFFFFF; }
+
+/* ---------- 8. Price table ---------- */
+.price-table thead th {
+  background-color: var(--ps-dark);
+  color: #FFFFFF;
+}
+
+.best-price {
+  color: var(--ps-green) !important;
+  font-weight: 700;
+}
+
+/* ---------- 9. About page ---------- */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--ps-gold);
+}
+
+.highlight {
+  background-color: var(--ps-gold);
+  color: var(--ps-text);
+  font-weight: 600;
+}
+
+/* ---------- 10. Side navigation (products page) ---------- */
+.list-group-item.active {
+  background-color: var(--ps-dark);
+  border-color: var(--ps-dark);
+}
+
+/* ---------- 11. Form (contact page) ---------- */
+#contact-form {
+  --bs-body-bg: #FFFFFF;                 /* white inputs inside the form */
+}
+
+.form-check-input:checked {
+  background-color: var(--ps-green);
+  border-color: var(--ps-green);
+}
