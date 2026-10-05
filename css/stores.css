@@ -1,0 +1,84 @@
+/* =========================================================
+   PriceScout — Stores page (stores.html)
+   Team: Dias Zhumakhan, Agzam Duysenov
+
+   This layout is written BY HAND with Flexbox + media queries
+   (no Bootstrap grid). Spacing (padding/margin) is still done
+   with Bootstrap classes in the HTML, like on the other pages.
+
+   Breakpoints (mobile first):
+     Mobile  : 0 – 767px     (default styles)
+     Tablet  : 768px and up
+     Desktop : 1200px and up
+   ========================================================= */
+
+/* ---------- Store cards ---------- */
+.store-grid {
+  display: flex;            /* cards side by side */
+  flex-wrap: wrap;          /* move to a new line when they don't fit */
+  gap: 1.5rem;              /* space between cards */
+}
+
+.store-card {
+  flex: 0 0 100%;           /* MOBILE: full width -> 1 card per row */
+  background-color: #FFFFFF;
+  border: 1px solid var(--ps-border);
+  border-radius: 0.75rem;
+  overflow: hidden;         /* image corners follow the rounded card */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.store-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(20, 67, 47, 0.18);
+}
+
+.store-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;        /* crop the photo, don't squash it */
+}
+
+/* gold label "Best for: ..." */
+.store-tag {
+  display: inline-block;
+  background-color: var(--ps-gold);
+  color: var(--ps-text);
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-radius: 999px;
+}
+
+/* ---------- Tips ---------- */
+.tips-row {
+  display: flex;
+  flex-direction: column;   /* MOBILE: tips stacked */
+  gap: 1rem;
+}
+
+.tip {
+  flex: 1;                  /* all tips get equal width */
+  background-color: #FFFFFF;
+  border-left: 4px solid var(--ps-green);
+  border-radius: 0.5rem;
+}
+
+/* =========================================================
+   TABLET — 768px and up
+   ========================================================= */
+@media (min-width: 768px) {
+  /* 2 cards per row: (100% - 1 gap) / 2 */
+  .store-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
+
+  /* tips in one row */
+  .tips-row { flex-direction: row; }
+}
+
+/* =========================================================
+   DESKTOP — 1200px and up
+   ========================================================= */
+@media (min-width: 1200px) {
+  /* 4 cards per row: (100% - 3 gaps) / 4 */
+  .store-card { flex: 0 0 calc((100% - 3 * 1.5rem) / 4); }
+}

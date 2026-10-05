@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Created by: Dias Zhumakhan & Agzam Duysenov | Page: Stores (stores.html) -->
+  <!-- Navbar, footer and spacing use Bootstrap.
+       The store cards and tips layout is hand-written CSS (Flexbox + media queries) in css/stores.css -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PriceScout - Store Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/stores.css">
+</head>
+<body>
+
+  <a href="#main" class="visually-hidden-focusable position-absolute top-0 start-0 bg-warning text-dark p-2 m-2 rounded">Skip to main content</a>
+
+  <!-- ===== Bootstrap Navbar (same as on every page) ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-success brand-bg py-3" data-bs-theme="dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fs-4" href="index.html">Price<span>Scout</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto gap-lg-3 mt-3 mt-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="stores.html">Stores</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== Intro ===== -->
+    <section class="bg-cream py-5">
+      <div class="container">
+        <h1 class="fw-bold mb-3">Store guide</h1>
+        <p class="lead mb-0">Each store is cheapest for different things. Here is what every store is good at and what to watch out for before you buy.</p>
+      </div>
+    </section>
+
+    <!-- ===== Store cards: hand-written Flexbox + media queries (css/stores.css) =====
+         Mobile: 1 card per row · Tablet (768px+): 2 per row · Desktop (1200px+): 4 per row -->
+    <section class="container py-5">
+      <h2 class="mb-4">The four stores we compare</h2>
+
+      <div class="store-grid">
+
+        <article class="store-card">
+          <img src="images/smartphone.jpg" alt="Smartphone, a popular Amazon purchase">
+          <div class="p-4">
+            <h3 class="h5 mb-2">Amazon</h3>
+            <p class="store-tag px-2 py-1 mb-3">Best for: electronics</p>
+            <p class="small mb-2">Huge catalog and fast delivery. Often the cheapest for smartwatches and denim.</p>
+            <ul class="small mb-0 ps-3">
+              <li>Easy returns</li>
+              <li>Watch out: shipping can raise the final price</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="store-card">
+          <img src="images/hoodie.jpg" alt="Hoodie, a popular Pinduoduo purchase">
+          <div class="p-4">
+            <h3 class="h5 mb-2">Pinduoduo</h3>
+            <p class="store-tag px-2 py-1 mb-3">Best for: basics &amp; clothing</p>
+            <p class="small mb-2">Group-buy discounts make everyday items very cheap, like hoodies and earbuds.</p>
+            <ul class="small mb-0 ps-3">
+              <li>Lowest prices on basics</li>
+              <li>Watch out: longer delivery, quality varies</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="store-card">
+          <img src="images/sneakers.jpg" alt="Running sneakers, a popular Poizon purchase">
+          <div class="p-4">
+            <h3 class="h5 mb-2">Poizon</h3>
+            <p class="store-tag px-2 py-1 mb-3">Best for: sneakers</p>
+            <p class="small mb-2">Every pair goes through an authenticity check before it is shipped to you.</p>
+            <ul class="small mb-0 ps-3">
+              <li>Rare and limited releases</li>
+              <li>Watch out: prices on hyped pairs change fast</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="store-card">
+          <img src="images/watch.jpg" alt="Smartwatch from an official brand store">
+          <div class="p-4">
+            <h3 class="h5 mb-2">Official Brand Site</h3>
+            <p class="store-tag px-2 py-1 mb-3">Best for: warranty</p>
+            <p class="small mb-2">Buying straight from the brand means the item is 100% original.</p>
+            <ul class="small mb-0 ps-3">
+              <li>Full warranty and official returns</li>
+              <li>Watch out: usually the highest price</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Quick guide table (Bootstrap table, same data as products.html) ===== -->
+    <section class="bg-cream py-5">
+      <div class="container">
+        <h2 class="mb-4">Where to check first</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle price-table bg-white mb-0">
+            <thead>
+              <tr>
+                <th scope="col">You want to buy</th>
+                <th scope="col">Check first</th>
+                <th scope="col">Lowest price we found</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Wireless Earbuds</th><td>Pinduoduo</td><td class="best-price">$34</td></tr>
+              <tr><th scope="row">Smartwatch</th><td>Amazon</td><td class="best-price">$129</td></tr>
+              <tr><th scope="row">Running Sneakers</th><td>Poizon</td><td class="best-price">$88</td></tr>
+              <tr><th scope="row">Denim Jacket</th><td>Amazon</td><td class="best-price">$40</td></tr>
+              <tr><th scope="row">Hoodie</th><td>Pinduoduo</td><td class="best-price">$22</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Shopping tips: hand-written Flexbox + media query =====
+         Mobile: stacked in a column · Tablet and up: three in a row -->
+    <section class="container py-5">
+      <h2 class="mb-4">3 tips before you buy</h2>
+      <div class="tips-row">
+        <div class="tip p-4">
+          <h3 class="h5">Compare the same model</h3>
+          <p class="mb-0">Check the exact model name and size. A "similar" item is not the same deal.</p>
+        </div>
+        <div class="tip p-4">
+          <h3 class="h5">Count the shipping</h3>
+          <p class="mb-0">A low price plus expensive delivery can cost more than the official site.</p>
+        </div>
+        <div class="tip p-4">
+          <h3 class="h5">Wait for a drop</h3>
+          <p class="mb-0">Not in a hurry? <a href="contact.html">Set a price alert</a> and we will email you when it gets cheaper.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Call to action (Bootstrap buttons) ===== -->
+    <section class="bg-cream py-5">
+      <div class="container text-center">
+        <h2 class="mb-3">Ready to compare?</h2>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <a href="products.html" class="btn btn-primary btn-lg">See the price table</a>
+          <a href="contact.html" class="btn btn-outline-primary btn-lg">Get price alerts</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-success brand-bg text-white text-center py-4">
+    <div class="container px-3 px-sm-2">
+      <p class="mb-0 small">&copy; 2026 PriceScout Team. Team members: Dias Zhumakhan, Agzam Duysenov.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
