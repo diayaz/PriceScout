@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Created by: Agzam Duysenov | Page: Contact (contact.html) | Assignment 5 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PriceScout - Get Notified</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- theme.js runs early so the saved Day/Night theme is applied before the page is drawn -->
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <a href="#main" class="visually-hidden-focusable position-absolute top-0 start-0 bg-warning text-dark p-2 m-2 rounded">Skip to main content</a>
+
+  <!-- ===== Task 5: Bootstrap Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-success brand-bg py-3" data-bs-theme="dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fs-4" href="index.html">Price<span>Scout</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto gap-lg-3 mt-3 mt-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="stores.html">Stores</a></li>
+            <li class="nav-item d-flex align-items-center">
+              <!-- Assignment 5: Day / Night theme (js/theme.js) -->
+              <button type="button" id="theme-toggle" class="btn btn-sm btn-outline-light rounded-pill px-3">🌙 Night</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="bg-cream py-5">
+      <div class="container">
+        <h1 class="fw-bold mb-3">Get notified of price drops</h1>
+        <p class="lead mb-0">Register below and we'll let you know when a product you care about gets cheaper somewhere.</p>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <div class="row g-4 g-lg-5">
+
+        <!-- ===== Task 1 (Assignment 4): form validated by JavaScript (js/validation.js) ===== -->
+        <div class="col-12 col-lg-7">
+          <form id="contact-form" class="bg-white border rounded-3 p-3 p-sm-4 p-lg-5" action="#" method="post" novalidate>
+            <h2 class="h4 mb-1">Create your alert account</h2>
+            <p class="small mb-4">Fields marked <span class="text-danger">*</span> are required.</p>
+
+            <div id="form-errors" class="alert alert-danger d-none" role="alert"></div>
+
+            <div class="row g-3">
+
+              <div class="col-12 col-md-6">
+                <label for="name" class="form-label fw-semibold">Full name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" autocomplete="name" aria-describedby="name-error">
+                <div class="invalid-feedback" id="name-error"></div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" aria-hidden="true">@</span>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-error">
+                  <div class="invalid-feedback" id="email-error"></div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="password" class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="password" name="password" autocomplete="new-password" aria-describedby="password-hint password-error">
+                <div class="form-text" id="password-hint">At least 8 characters, with a letter and a number.</div>
+                <div class="invalid-feedback" id="password-error"></div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="confirm-password" class="form-label fw-semibold">Confirm password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" autocomplete="new-password" aria-describedby="confirm-password-error">
+                <div class="invalid-feedback" id="confirm-password-error"></div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="category" class="form-label fw-semibold">Category to track <span class="text-danger">*</span></label>
+                <select id="category" name="category" class="form-select" aria-describedby="category-error">
+                  <option value="" selected>Choose…</option>
+                  <option value="electronics">Electronics</option>
+                  <option value="clothing">Clothing</option>
+                  <option value="sneakers">Sneakers</option>
+                </select>
+                <div class="invalid-feedback" id="category-error"></div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="max-price" class="form-label fw-semibold">Alert me below (optional)</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">$</span>
+                  <input type="number" class="form-control" id="max-price" name="max-price" placeholder="100" aria-describedby="max-price-error">
+                  <div class="invalid-feedback" id="max-price-error"></div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="message" class="form-label fw-semibold">What item should we track?</label>
+                <textarea id="message" name="message" class="form-control" rows="3" placeholder="E.g. Nike Air Max 90, size 42"></textarea>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="weekly" name="weekly">
+                  <label class="form-check-label" for="weekly">Also send me the weekly "Best deals" email</label>
+                </div>
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="checkbox" id="agree" name="agree" aria-describedby="agree-error">
+                  <label class="form-check-label" for="agree">I agree to receive price-drop emails <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback" id="agree-error"></div>
+                </div>
+              </div>
+
+              <div class="col-12 d-grid gap-2 d-sm-flex pt-2">
+                <button type="submit" class="btn btn-primary btn-lg">Register for Alerts</button>
+                <button type="reset" class="btn btn-outline-secondary btn-lg">Clear form</button>
+              </div>
+
+              <div class="col-12">
+                <div id="form-success" class="alert alert-success d-none mb-0" role="status"></div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- Side info column -->
+        <div class="col-12 col-lg-5">
+          <div class="card bg-cream border-0 p-4 h-100">
+            <h2 class="h4 mb-3">Why register?</h2>
+            <ul class="list-group list-group-flush mb-4">
+              <li class="list-group-item bg-transparent px-0">One email when the price drops — no spam.</li>
+              <li class="list-group-item bg-transparent px-0">Choose how big the drop must be (color tag).</li>
+              <li class="list-group-item bg-transparent px-0">Unsubscribe any time with one click.</li>
+            </ul>
+            <p class="mb-2 fw-semibold">Just want the weekly deals?</p>
+            <p class="mb-3">No account needed — <button type="button" class="btn btn-link p-0 align-baseline" data-open-popup>subscribe in one step</button>.</p>
+            <p class="mb-2 fw-semibold">Questions?</p>
+            <p class="mb-0">Email us at <a href="mailto:PriceScout@gmail.com">PriceScout@gmail.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-success brand-bg text-white text-center py-4 mt-4">
+    <div class="container px-3 px-sm-2">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <!-- Task 5: current date & time (js/datetime.js) -->
+        <p class="mb-0 small">Today: <time id="datetime" class="datetime-block">loading…</time></p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <!-- Task 3: opens the popup subscription form (js/popup.js) -->
+          <button type="button" class="btn btn-warning btn-sm fw-semibold px-3" data-open-popup>Subscribe to deals</button>
+          <!-- Assignment 5: mute / unmute sound effects (js/sounds.js) -->
+          <button type="button" id="sound-toggle" class="btn btn-outline-light btn-sm px-3" aria-pressed="true">🔊 Sound: On</button>
+        </div>
+      </div>
+      <hr class="border-light opacity-25 my-3">
+      <p class="mb-0 small">&copy; 2026 PriceScout Team. Team members: Dias Zhumakhan, Agzam Duysenov.</p>
+    </div>
+  </footer>
+
+
+  <!-- ===== Task 3: Popup subscription form — hidden by default (js/popup.js) ===== -->
+  <div id="subscribe-popup" class="popup-overlay" hidden>
+    <div class="popup-box p-4 p-sm-5" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <button type="button" class="popup-close" aria-label="Close subscription form">&times;</button>
+      <h2 id="popup-title" class="h4 mb-2">Weekly best deals</h2>
+      <p class="small mb-4">Get the 5 biggest price drops of the week in one short email. No spam, unsubscribe any time.</p>
+      <form id="subscribe-form" novalidate>
+        <div class="mb-3">
+          <label for="sub-name" class="form-label fw-semibold">Your name</label>
+          <input type="text" id="sub-name" class="form-control" placeholder="Dias" autocomplete="name">
+          <div class="invalid-feedback">Please enter at least 2 characters.</div>
+        </div>
+        <div class="mb-4">
+          <label for="sub-email" class="form-label fw-semibold">Email</label>
+          <input type="email" id="sub-email" class="form-control" placeholder="you@example.com" autocomplete="email">
+          <div class="invalid-feedback">Please enter a valid email, e.g. name@example.com.</div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+      </form>
+      <div id="sub-error" class="alert alert-danger d-none mt-3 mb-0" role="alert"></div>
+      <div id="sub-success" class="alert alert-success d-none mb-0" role="status"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Each JS component is in its own file. sounds.js goes first: the others call playSound() -->
+  <script src="js/sounds.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/datetime.js"></script>
+</body>
+</html>

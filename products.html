@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Created by: Dias Zhumakhan | Page: Products (products.html) | Assignment 5 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PriceScout - Compare Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- theme.js runs early so the saved Day/Night theme is applied before the page is drawn -->
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <a href="#main" class="visually-hidden-focusable position-absolute top-0 start-0 bg-warning text-dark p-2 m-2 rounded">Skip to main content</a>
+
+  <!-- ===== Task 5: Bootstrap Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-success brand-bg py-3" data-bs-theme="dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fs-4" href="index.html">Price<span>Scout</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto gap-lg-3 mt-3 mt-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="stores.html">Stores</a></li>
+            <li class="nav-item d-flex align-items-center">
+              <!-- Assignment 5: Day / Night theme (js/theme.js) -->
+              <button type="button" id="theme-toggle" class="btn btn-sm btn-outline-light rounded-pill px-3">🌙 Night</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page layout: sidebar (col-lg-3) + main content (col-lg-9).
+       Replaces the custom CSS Grid layout from Assignment 2. -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <aside class="col-12 col-lg-3 col-xl-2 bg-cream border-end py-4 px-3 px-lg-4">
+        <div class="sticky-lg-top pt-lg-3">
+          <h2 class="h6 text-uppercase fw-bold mb-3">On this page</h2>
+          <nav class="list-group" aria-label="Page sections">
+            <a href="#steps" class="list-group-item list-group-item-action">How it works</a>
+            <a href="#table" class="list-group-item list-group-item-action">Deal finder</a>
+            <a href="#gallery" class="list-group-item list-group-item-action">Gallery</a>
+            <a href="#deals" class="list-group-item list-group-item-action">Best deals</a>
+            <a href="#faq" class="list-group-item list-group-item-action">FAQ</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main id="main" class="col-12 col-lg-9 col-xl-10 px-3 px-sm-4 px-lg-5 py-4">
+
+        <section class="mb-5">
+          <h1 class="fw-bold mb-2">Compare Prices</h1>
+          <p class="lead mb-0">Pick a category, then check the same item across four stores below.</p>
+        </section>
+
+        <!-- ===== Task 3: two columns (col-lg-6) ===== -->
+        <section id="steps" class="mb-5">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-6">
+              <h2 class="mb-3">How the comparison works</h2>
+              <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Choose a product category (electronics, clothing or sneakers).</li>
+                <li class="list-group-item">We check the listed price on each of the four stores.</li>
+                <li class="list-group-item">We highlight the lowest price in the table.</li>
+                <li class="list-group-item">You click through to buy from your preferred store.</li>
+              </ol>
+            </div>
+            <div class="col-12 col-lg-6">
+              <img src="images/sra.jpg" alt="Row of product categories: phone, jacket, sneakers" class="img-fluid rounded-3 rounded-img">
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Assignment 5: Deal Finder — table built by JavaScript (js/products.js) ===== -->
+        <section id="table" class="mb-5">
+          <h2 class="mb-2">Deal finder</h2>
+          <p class="mb-3">Filter by category and price, sort the list, and see where each item is cheapest.</p>
+
+          <div class="d-flex flex-wrap align-items-end gap-3 mb-3">
+            <div class="btn-group flex-wrap" role="group" aria-label="Filter by category">
+              <button type="button" class="btn btn-outline-primary active" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="electronics" aria-pressed="false">Electronics</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="clothing" aria-pressed="false">Clothing</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="sneakers" aria-pressed="false">Sneakers</button>
+              <button type="button" class="btn btn-outline-primary" data-filter="accessories" aria-pressed="false">Accessories</button>
+            </div>
+            <div>
+              <label for="price-filter" class="form-label small fw-semibold mb-1">Best price</label>
+              <select id="price-filter" class="form-select form-select-sm">
+                <option value="all">Any price</option>
+                <option value="under50">Under $50</option>
+                <option value="50to100">$50 – $100</option>
+                <option value="over100">Over $100</option>
+              </select>
+            </div>
+            <div>
+              <label for="sort-select" class="form-label small fw-semibold mb-1">Sort by</label>
+              <select id="sort-select" class="form-select form-select-sm">
+                <option value="default">Default</option>
+                <option value="cheapest">Cheapest first</option>
+                <option value="savings">Biggest saving</option>
+                <option value="name">Name A–Z</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="deal-summary" class="small fw-semibold mb-2" aria-live="polite"></p>
+
+          <div class="table-responsive">
+            <table id="deal-table" class="table table-hover table-bordered align-middle price-table bg-white mb-2">
+              <caption class="small">Lowest price in each row is shown in <strong>bold green</strong>.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Amazon</th>
+                  <th scope="col">Pinduoduo</th>
+                  <th scope="col">Poizon</th>
+                  <th scope="col">Official Site</th>
+                  <th scope="col">You save</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- rows are created by js/products.js -->
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button type="button" id="show-more" class="btn btn-primary btn-sm">Show more products</button>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Track a product</a>
+          </div>
+        </section>
+
+        <!-- ===== Assignment 5: thumbnail gallery — click changes the big image's src (js/gallery.js) ===== -->
+        <section id="gallery" class="mb-5">
+          <h2 class="mb-3">Product gallery</h2>
+          <div class="row g-4 align-items-start">
+            <div class="col-12 col-lg-8">
+              <figure class="gallery-main mb-0 rounded-3 overflow-hidden">
+                <img id="gallery-image" src="images/ear.jpg" alt="Wireless Earbuds" class="w-100">
+              </figure>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card bg-cream border-0 p-4 mb-3">
+                <h3 id="gallery-title" class="h5 mb-1">Wireless Earbuds</h3>
+                <p id="gallery-info" class="mb-0">Cheapest on Pinduoduo — $34</p>
+              </div>
+              <div class="thumb-grid" role="group" aria-label="Choose a product photo">
+                <button type="button" class="thumb active" data-full="images/ear.jpg" data-title="Wireless Earbuds" data-info="Cheapest on Pinduoduo — $34" aria-pressed="true" aria-label="Show Wireless Earbuds">
+                  <img src="images/ear.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/sneakers.jpg" data-title="Running Sneakers" data-info="Cheapest on Poizon — $88" aria-pressed="false" aria-label="Show Running Sneakers">
+                  <img src="images/sneakers.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/denimjeans.jpg" data-title="Denim Jacket" data-info="Cheapest on Amazon — $40" aria-pressed="false" aria-label="Show Denim Jacket">
+                  <img src="images/denimjeans.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/smartphone.jpg" data-title="Smartphone" data-info="Cheapest on Pinduoduo — $245" aria-pressed="false" aria-label="Show Smartphone">
+                  <img src="images/smartphone.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/hoodie.jpg" data-title="Hoodie" data-info="Cheapest on Pinduoduo — $22" aria-pressed="false" aria-label="Show Hoodie">
+                  <img src="images/hoodie.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/backpack.jpg" data-title="Backpack" data-info="Cheapest on Pinduoduo — $27" aria-pressed="false" aria-label="Show Backpack">
+                  <img src="images/backpack.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/sun.jpg" data-title="Sunglasses" data-info="Cheapest on Pinduoduo — $12" aria-pressed="false" aria-label="Show Sunglasses">
+                  <img src="images/sun.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/watch.jpg" data-title="Smartwatch" data-info="Cheapest on Amazon — $129" aria-pressed="false" aria-label="Show Smartwatch">
+                  <img src="images/watch.jpg" alt="">
+                </button>
+                <button type="button" class="thumb" data-full="images/look.jpg" data-title="Retro Sneakers" data-info="Cheapest on Poizon — $72" aria-pressed="false" aria-label="Show Retro Sneakers">
+                  <img src="images/look.jpg" alt="">
+                </button>
+              </div>
+              <p class="small mt-2 mb-0">Tip: click a photo, or use the ← → keys while a photo is focused.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Task 8: card-group + Assignment 5: star rating (js/rating.js) ===== -->
+        <section id="deals" class="mb-4">
+          <h2 class="mb-3">Best deals this week</h2>
+          <div class="card-group">
+            <article class="card">
+              <img src="images/ear.jpg" class="card-img-top" alt="Wireless earbuds">
+              <div class="card-body">
+                <h3 class="card-title h5">Wireless Earbuds</h3>
+                <p class="card-text">Cheapest on Pinduoduo — <span class="best-price">$34</span>, that's 57% less than the official site.</p>
+                <div class="rating" data-product="earbuds">
+                  <span class="small fw-semibold me-1">Your rating:</span>
+                  <span class="stars" role="group" aria-label="Rate this deal"><button type="button" class="star" data-value="1" aria-label="1 star">★</button><button type="button" class="star" data-value="2" aria-label="2 stars">★</button><button type="button" class="star" data-value="3" aria-label="3 stars">★</button><button type="button" class="star" data-value="4" aria-label="4 stars">★</button><button type="button" class="star" data-value="5" aria-label="5 stars">★</button></span>
+                  <p class="rating-message small mb-0 mt-1">Not rated yet — click a star.</p>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img src="images/sneakers.jpg" class="card-img-top" alt="Running sneakers">
+              <div class="card-body">
+                <h3 class="card-title h5">Running Sneakers</h3>
+                <p class="card-text">Cheapest on Poizon — <span class="best-price">$88</span>, with an authenticity check included.</p>
+                <div class="rating" data-product="sneakers">
+                  <span class="small fw-semibold me-1">Your rating:</span>
+                  <span class="stars" role="group" aria-label="Rate this deal"><button type="button" class="star" data-value="1" aria-label="1 star">★</button><button type="button" class="star" data-value="2" aria-label="2 stars">★</button><button type="button" class="star" data-value="3" aria-label="3 stars">★</button><button type="button" class="star" data-value="4" aria-label="4 stars">★</button><button type="button" class="star" data-value="5" aria-label="5 stars">★</button></span>
+                  <p class="rating-message small mb-0 mt-1">Not rated yet — click a star.</p>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img src="images/denimjeans.jpg" class="card-img-top" alt="Denim jacket">
+              <div class="card-body">
+                <h3 class="card-title h5">Denim Jacket</h3>
+                <p class="card-text">Cheapest on Amazon — <span class="best-price">$40</span>, fast shipping.</p>
+                <div class="rating" data-product="jacket">
+                  <span class="small fw-semibold me-1">Your rating:</span>
+                  <span class="stars" role="group" aria-label="Rate this deal"><button type="button" class="star" data-value="1" aria-label="1 star">★</button><button type="button" class="star" data-value="2" aria-label="2 stars">★</button><button type="button" class="star" data-value="3" aria-label="3 stars">★</button><button type="button" class="star" data-value="4" aria-label="4 stars">★</button><button type="button" class="star" data-value="5" aria-label="5 stars">★</button></span>
+                  <p class="rating-message small mb-0 mt-1">Not rated yet — click a star.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===== Assignment 4, Task 2: FAQ accordion (js/accordion.js) ===== -->
+        <section id="faq" class="mb-4">
+          <div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
+            <h2 class="mb-0">Frequently asked questions</h2>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Expand or collapse all answers">
+              <button type="button" class="btn btn-outline-primary" id="faq-expand-all">Expand all</button>
+              <button type="button" class="btn btn-outline-primary" id="faq-collapse-all">Collapse all</button>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-3">
+            <div class="faq-item">
+              <h3 class="h6 mb-0">
+                <button type="button" class="faq-question d-flex align-items-center justify-content-between gap-3 p-3 p-md-4" aria-expanded="true" aria-controls="faq-answer-1" id="faq-q-1">
+                  <span>How does PriceScout find the cheapest price?</span><span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-q-1">
+                <p class="mb-0 px-3 px-md-4 pb-3 pb-md-4">We look up the exact same product (same model, size and color) on Amazon, Pinduoduo, Poizon and the official brand site, then highlight the lowest listed price in green in the table above.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h3 class="h6 mb-0">
+                <button type="button" class="faq-question d-flex align-items-center justify-content-between gap-3 p-3 p-md-4" aria-expanded="true" aria-controls="faq-answer-2" id="faq-q-2">
+                  <span>Are prices on Pinduoduo and Poizon really that low?</span><span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-q-2">
+                <p class="mb-0 px-3 px-md-4 pb-3 pb-md-4">Often, yes — but delivery to Kazakhstan can take 2–4 weeks and shipping is sometimes added at checkout. Always compare the final price including delivery before you buy.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h3 class="h6 mb-0">
+                <button type="button" class="faq-question d-flex align-items-center justify-content-between gap-3 p-3 p-md-4" aria-expanded="true" aria-controls="faq-answer-3" id="faq-q-3">
+                  <span>Can I trust sneakers from Poizon?</span><span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-q-3">
+                <p class="mb-0 px-3 px-md-4 pb-3 pb-md-4">Poizon checks every pair at its own authentication centre before shipping, so the risk of a fake is low. For limited releases the official site is still the safest option.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h3 class="h6 mb-0">
+                <button type="button" class="faq-question d-flex align-items-center justify-content-between gap-3 p-3 p-md-4" aria-expanded="true" aria-controls="faq-answer-4" id="faq-q-4">
+                  <span>Do I need an account to use PriceScout?</span><span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-q-4">
+                <p class="mb-0 px-3 px-md-4 pb-3 pb-md-4">No. Browsing and comparing is free without sign-up. An account is only needed if you want price-drop alerts by email (see the Contact page).</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h3 class="h6 mb-0">
+                <button type="button" class="faq-question d-flex align-items-center justify-content-between gap-3 p-3 p-md-4" aria-expanded="true" aria-controls="faq-answer-5" id="faq-q-5">
+                  <span>How often are the prices updated?</span><span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-q-5">
+                <p class="mb-0 px-3 px-md-4 pb-3 pb-md-4">For this student project the prices are sample data. In a real version they would be refreshed every few hours from each store.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <footer class="bg-success brand-bg text-white text-center py-4">
+    <div class="container px-3 px-sm-2">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <!-- Task 5: current date & time (js/datetime.js) -->
+        <p class="mb-0 small">Today: <time id="datetime" class="datetime-block">loading…</time></p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <!-- Task 3: opens the popup subscription form (js/popup.js) -->
+          <button type="button" class="btn btn-warning btn-sm fw-semibold px-3" data-open-popup>Subscribe to deals</button>
+          <!-- Assignment 5: mute / unmute sound effects (js/sounds.js) -->
+          <button type="button" id="sound-toggle" class="btn btn-outline-light btn-sm px-3" aria-pressed="true">🔊 Sound: On</button>
+        </div>
+      </div>
+      <hr class="border-light opacity-25 my-3">
+      <p class="mb-0 small">&copy; 2026 PriceScout Team. Team members: Dias Zhumakhan, Agzam Duysenov.</p>
+    </div>
+  </footer>
+
+
+  <!-- ===== Task 3: Popup subscription form — hidden by default (js/popup.js) ===== -->
+  <div id="subscribe-popup" class="popup-overlay" hidden>
+    <div class="popup-box p-4 p-sm-5" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <button type="button" class="popup-close" aria-label="Close subscription form">&times;</button>
+      <h2 id="popup-title" class="h4 mb-2">Weekly best deals</h2>
+      <p class="small mb-4">Get the 5 biggest price drops of the week in one short email. No spam, unsubscribe any time.</p>
+      <form id="subscribe-form" novalidate>
+        <div class="mb-3">
+          <label for="sub-name" class="form-label fw-semibold">Your name</label>
+          <input type="text" id="sub-name" class="form-control" placeholder="Dias" autocomplete="name">
+          <div class="invalid-feedback">Please enter at least 2 characters.</div>
+        </div>
+        <div class="mb-4">
+          <label for="sub-email" class="form-label fw-semibold">Email</label>
+          <input type="email" id="sub-email" class="form-control" placeholder="you@example.com" autocomplete="email">
+          <div class="invalid-feedback">Please enter a valid email, e.g. name@example.com.</div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+      </form>
+      <div id="sub-error" class="alert alert-danger d-none mt-3 mb-0" role="alert"></div>
+      <div id="sub-success" class="alert alert-success d-none mb-0" role="status"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Each JS component is in its own file. sounds.js goes first: the others call playSound() -->
+  <script src="js/sounds.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/rating.js"></script>
+  <script src="js/accordion.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/datetime.js"></script>
+</body>
+</html>

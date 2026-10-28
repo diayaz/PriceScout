@@ -1,0 +1,452 @@
+/* =========================================================
+   PriceScout — Assignment 3 (Bootstrap pages)
+   Team: Dias Zhumakhan, Agzam Duysenov
+
+   Rule for this file: NO custom margin / padding.
+   All spacing is done with Bootstrap spacing utilities
+   (m-*, p-*, g-*, mt-lg-*, px-sm-* ...) in the HTML.
+   This file only sets brand colors, fonts, font sizes,
+   and small visual effects.
+   ========================================================= */
+
+/* ---------- 1. Brand colors (CSS variables) ---------- */
+:root {
+  --ps-dark: #14432F;      /* dark green  */
+  --ps-green: #1E7A5F;     /* main green  */
+  --ps-gold: #D4A017;      /* accent gold */
+  --ps-cream: #EFEDE4;     /* light background */
+  --ps-text: #1F2937;      /* body text   */
+  --ps-border: #E3E1DA;
+  --ps-surface: #FFFFFF;   /* cards, boxes, inputs (Assignment 5: changes in Night theme) */
+  --ps-heading: var(--ps-dark);
+
+  /* Tell Bootstrap to use our fonts / colors */
+  --bs-body-font-family: 'Inter', sans-serif;
+  --bs-body-color: var(--ps-text);
+  --bs-body-bg: #FAFAF8;
+  --bs-link-color-rgb: 30, 122, 95;
+  --bs-link-hover-color-rgb: 20, 67, 47;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--ps-heading);
+}
+
+.navbar-brand { font-family: 'Poppins', sans-serif; }
+
+/* ---------- 2. Responsive typography (Media Queries) ----------
+   Mobile first: small -> medium (tablet) -> large (desktop)      */
+body { font-size: 0.95rem; }
+h1   { font-size: 1.75rem; }
+h2   { font-size: 1.4rem; }
+.lead { font-size: 1.05rem; }
+
+/* Tablet: 768px and wider */
+@media (min-width: 768px) {
+  body  { font-size: 1rem; }
+  h1    { font-size: 2.25rem; }
+  h2    { font-size: 1.65rem; }
+  .lead { font-size: 1.15rem; }
+}
+
+/* Desktop: 992px and wider */
+@media (min-width: 992px) {
+  body  { font-size: 1.05rem; }
+  h1    { font-size: 2.75rem; }
+  h2    { font-size: 1.9rem; }
+  .lead { font-size: 1.25rem; }
+}
+
+/* ---------- 3. Navbar & footer colors ----------
+   We keep Bootstrap's own classes (bg-success, navbar-dark ...)
+   and only re-tint Bootstrap's CSS variables to our brand green. */
+.brand-bg {
+  --bs-success-rgb: 20, 67, 47;          /* bg-success -> dark green */
+}
+
+.navbar.brand-bg {                       /* beats Bootstrap's dark-theme defaults */
+  --bs-navbar-color: #F4F1EA;
+  --bs-navbar-hover-color: var(--ps-gold);
+  --bs-navbar-active-color: var(--ps-gold);
+}
+
+.navbar-brand { color: #FFFFFF; font-weight: 700; }
+.navbar-brand span,
+.text-gold { color: var(--ps-gold); }
+
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--ps-gold);
+}
+
+/* ---------- 4. Buttons: re-tint Bootstrap button variables ---------- */
+.btn-primary {
+  --bs-btn-bg: var(--ps-green);
+  --bs-btn-border-color: var(--ps-green);
+  --bs-btn-hover-bg: var(--ps-dark);
+  --bs-btn-hover-border-color: var(--ps-dark);
+  --bs-btn-active-bg: var(--ps-dark);
+  --bs-btn-active-border-color: var(--ps-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--ps-green);
+  --bs-btn-border-color: var(--ps-green);
+  --bs-btn-hover-bg: var(--ps-green);
+  --bs-btn-hover-border-color: var(--ps-green);
+  --bs-btn-active-bg: var(--ps-dark);
+  --bs-btn-active-border-color: var(--ps-dark);
+}
+
+/* Visible keyboard focus (accessibility) */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.45);
+}
+
+/* ---------- 5. Sections ---------- */
+.bg-cream { background-color: var(--ps-cream); }
+
+.hero-img,
+.rounded-img {
+  border: 1px solid var(--ps-border);
+}
+
+/* ---------- 6. Cards ---------- */
+.card {
+  --bs-card-bg: var(--ps-surface);
+  border-color: var(--ps-border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(20, 67, 47, 0.18);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ---------- 7. Carousel ---------- */
+.carousel-item img {
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+  .carousel-item img { height: 240px; }
+}
+
+/* dark strip behind caption for good contrast;
+   lifted up so it does not cover the indicators */
+.carousel-caption {
+  bottom: 2.75rem;
+  background-color: rgba(20, 67, 47, 0.8);
+  border-radius: 0.5rem;
+}
+
+.carousel-caption h3 { color: #FFFFFF; }
+
+/* ---------- 8. Price table ---------- */
+.price-table thead th {
+  background-color: var(--ps-dark);
+  color: #FFFFFF;
+}
+
+.best-price {
+  color: var(--ps-green) !important;
+  font-weight: 700;
+}
+
+/* ---------- 9. About page ---------- */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--ps-gold);
+}
+
+.highlight {
+  background-color: var(--ps-gold);
+  color: #1F2937;
+  font-weight: 600;
+}
+
+/* ---------- 10. Side navigation (products page) ---------- */
+.list-group-item.active {
+  background-color: var(--ps-dark);
+  border-color: var(--ps-dark);
+}
+
+/* ---------- 11. Form (contact page) ---------- */
+#contact-form {
+  --bs-body-bg: var(--ps-surface);       /* inputs inside the form */
+}
+
+.form-check-input:checked {
+  background-color: var(--ps-green);
+  border-color: var(--ps-green);
+}
+
+/* =========================================================
+   Assignment 4 — styles for the JavaScript components
+   (spacing is still done with Bootstrap classes in the HTML)
+   ========================================================= */
+
+/* ---------- 12. Smooth theme change (Assignment 5) ---------- */
+body { transition: background-color 0.4s ease, color 0.4s ease; }
+
+/* ---------- 13. Task 5: live date & time ---------- */
+.datetime-block {
+  font-variant-numeric: tabular-nums;   /* digits don't "jump" every second */
+  color: var(--ps-gold);
+  font-weight: 600;
+}
+
+/* ---------- 14. Task 2: FAQ accordion ---------- */
+.faq-item {
+  background-color: var(--ps-surface);
+  border: 1px solid var(--ps-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: 0;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--ps-heading);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover { background-color: var(--ps-cream); }
+.faq-question:focus-visible { outline: 3px solid var(--ps-gold); outline-offset: -3px; }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--ps-green);
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);          /* "+" turns into "×" */
+  background-color: var(--ps-gold);
+}
+
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 0.35s ease;  /* the smooth open / close */
+}
+
+/* ---------- 15. Task 3: popup subscription form ---------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(20, 67, 47, 0.6);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.popup-overlay[hidden] { display: none; }
+.popup-overlay.show { opacity: 1; }
+
+.popup-box {
+  position: relative;
+  width: min(440px, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background-color: var(--ps-surface);
+  border-radius: 1rem;
+  border-top: 6px solid var(--ps-gold);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+.popup-overlay.show .popup-box { transform: none; }
+
+.popup-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--ps-cream);
+  color: var(--ps-heading);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.popup-close:hover { background-color: var(--ps-border); }
+
+body.popup-open { overflow: hidden; }
+
+/* ---------- 16. Task 1: password hint ---------- */
+#contact-form .form-text { color: #5B6472; }
+
+/* =========================================================
+   Assignment 5
+   ========================================================= */
+
+/* ---------- 17. Night theme ----------
+   theme.js sets <html data-bs-theme="dark">. Bootstrap switches its own
+   colors; here we switch OUR brand variables.                          */
+[data-bs-theme="dark"] {
+  --ps-cream: #18231E;
+  --ps-surface: #1F2B25;
+  --ps-border: #31403A;
+  --ps-text: #E6E8E3;
+  --ps-heading: #EAF4EE;
+  --ps-green: #3FA37F;
+  --bs-body-bg: #111915;
+  --bs-body-color: var(--ps-text);
+  --bs-link-color-rgb: 120, 200, 165;
+  --bs-link-hover-color-rgb: 212, 160, 23;
+}
+
+/* Bootstrap's .bg-white is always white — make it follow the theme */
+[data-bs-theme="dark"] .bg-white { background-color: var(--ps-surface) !important; }
+[data-bs-theme="dark"] .best-price { color: #6FD3A8 !important; }
+[data-bs-theme="dark"] .btn-outline-primary { --bs-btn-color: #8FD9B9; --bs-btn-border-color: #3FA37F; }
+[data-bs-theme="dark"] #contact-form .form-text { color: #A9B3AE; }
+[data-bs-theme="dark"] .price-table thead th { background-color: #0B120F; }
+
+/* ---------- 18. Deal finder table ---------- */
+.deal-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+}
+
+.save-badge {
+  background-color: var(--ps-gold);
+  color: #1F2937;
+}
+
+/* rows slide in one after another (delay is set in products.js) */
+.row-enter {
+  animation: row-in 0.4s ease both;
+}
+
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- 19. Thumbnail gallery ---------- */
+.gallery-main {
+  border: 1px solid var(--ps-border);
+}
+
+.gallery-main img {
+  height: 420px;
+  object-fit: cover;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-main img.fading {            /* gallery.js adds this while changing src */
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+@media (max-width: 767.98px) {
+  .gallery-main img { height: 240px; }
+}
+
+.thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.thumb {
+  border: 3px solid transparent;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: none;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.thumb img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb:hover,
+.thumb:focus-visible { opacity: 1; transform: translateY(-3px); }
+.thumb.active { opacity: 1; border-color: var(--ps-gold); }
+
+/* ---------- 20. Star rating ---------- */
+.star {
+  background: none;
+  border: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #C9CDD2;                     /* empty star */
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.star:hover { transform: scale(1.15); }
+.star.filled { color: var(--ps-gold); } /* rating.js adds .filled */
+.star:focus-visible { outline: 2px solid var(--ps-gold); border-radius: 4px; }
+
+.star.pop { animation: star-pop 0.35s ease; }
+
+@keyframes star-pop {
+  50% { transform: scale(1.5) rotate(-12deg); }
+}
+
+.rating-message { min-height: 1.3em; }
+
+/* ---------- 21. Home: greeting dashboard ---------- */
+.dashboard {
+  background-color: var(--ps-surface);
+  border: 1px solid var(--ps-border);
+  border-left: 6px solid var(--ps-gold);
+}
+
+.name-input { max-width: 240px; }
+
+.check-icon {
+  display: inline-block;
+  transition: transform 0.8s ease;    /* greeting.js changes style.transform */
+}
+
+#greeting { transition: color 0.3s ease; }
+#greeting.pulse { animation: pulse 0.6s ease; }
+
+@keyframes pulse {
+  50% { transform: scale(1.05); color: var(--ps-gold); }
+}
+
+/* ---------- 22. Respect "reduce motion" setting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
