@@ -35,6 +35,8 @@
             <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="stores.html">Stores</a></li>
+            <li class="nav-item"><a class="nav-link" href="market.html">Live Market</a></li>
+            <li class="nav-item"><a class="nav-link nav-account" id="nav-account" href="login.html">👤 Log in</a></li>
             <li class="nav-item d-flex align-items-center">
               <!-- Assignment 5: Day / Night theme (js/theme.js) -->
               <button type="button" id="theme-toggle" class="btn btn-sm btn-outline-light rounded-pill px-3">🌙 Night</button>
@@ -77,15 +79,23 @@
                 <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                   <span class="input-group-text" aria-hidden="true">@</span>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-error">
+                  <input type="text" inputmode="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-error">
                   <div class="invalid-feedback" id="email-error"></div>
                 </div>
+              </div>
+
+              <!-- Final project: phone number checked by a pattern in js/validation.js -->
+              <div class="col-12 col-md-6">
+                <label for="phone" class="form-label fw-semibold">Phone <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 701 234 56 78" autocomplete="tel" aria-describedby="phone-hint phone-error">
+                <div class="form-text" id="phone-hint">Kazakhstan number: +7 or 8, then 10 digits.</div>
+                <div class="invalid-feedback" id="phone-error"></div>
               </div>
 
               <div class="col-12 col-md-6">
                 <label for="password" class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
                 <input type="password" class="form-control" id="password" name="password" autocomplete="new-password" aria-describedby="password-hint password-error">
-                <div class="form-text" id="password-hint">At least 8 characters, with a letter and a number.</div>
+                <div class="form-text" id="password-hint">At least 8 characters with an uppercase letter, a lowercase letter and a number.</div>
                 <div class="invalid-feedback" id="password-error"></div>
               </div>
 
@@ -110,7 +120,7 @@
                 <label for="max-price" class="form-label fw-semibold">Alert me below (optional)</label>
                 <div class="input-group has-validation">
                   <span class="input-group-text">$</span>
-                  <input type="number" class="form-control" id="max-price" name="max-price" placeholder="100" aria-describedby="max-price-error">
+                  <input type="text" inputmode="decimal" class="form-control" id="max-price" name="max-price" placeholder="100" aria-describedby="max-price-error">
                   <div class="invalid-feedback" id="max-price-error"></div>
                 </div>
               </div>
@@ -199,7 +209,7 @@
         </div>
         <div class="mb-4">
           <label for="sub-email" class="form-label fw-semibold">Email</label>
-          <input type="email" id="sub-email" class="form-control" placeholder="you@example.com" autocomplete="email">
+          <input type="text" inputmode="email" id="sub-email" class="form-control" placeholder="you@example.com" autocomplete="email">
           <div class="invalid-feedback">Please enter a valid email, e.g. name@example.com.</div>
         </div>
         <button type="submit" class="btn btn-primary w-100">Subscribe</button>
@@ -214,6 +224,7 @@
   <script src="js/sounds.js"></script>
   <script src="js/validation.js"></script>
   <script src="js/popup.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/datetime.js"></script>
 </body>

@@ -227,5 +227,28 @@ if (tableBody) {
     playSound('pop');
   });
 
+  // Final project: filters are saved in localStorage and restored on the next visit
+  try {
+    const savedFilters = JSON.parse(localStorage.getItem('ps-deal-filters'));
+    if (savedFilters) {
+      currentCategory = savedFilters.category;
+      currentPrice = savedFilters.price;
+      currentSort = savedFilters.sort;
+      priceSelect.value = currentPrice;
+      sortSelect.value = currentSort;
+      categoryButtons.forEach(function (b) {
+        const on = b.dataset.filter === currentCategory;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    }
+  } catch (e) { /* nothing saved yet */ }
+
+  document.addEventListener('deals:rendered', function () {
+    try {
+      localStorage.setItem('ps-deal-filters', JSON.stringify({ category: currentCategory, price: currentPrice, sort: currentSort }));
+    } catch (e) { /* storage blocked */ }
+  });
+
   renderTable(); // first render when the page opens
 }

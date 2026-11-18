@@ -21,6 +21,8 @@ if (contactForm) {
   // Simple email pattern: something@something.domain
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const MIN_PASSWORD = 8;
+  // Kazakhstan phone: +7 or 8, then 10 digits (spaces, dashes and brackets are ignored)
+  const PHONE_PATTERN = /^(\+7|8)\d{10}$/;
 
   // field id -> function that returns an error message or ''
   const rules = {
@@ -35,10 +37,17 @@ if (contactForm) {
       if (!EMAIL_PATTERN.test(value)) return 'Enter a valid email, e.g. name@example.com.';
       return '';
     },
+    phone: function (value) {
+      if (value === '') return 'Phone number is required.';
+      if (!PHONE_PATTERN.test(value.replace(/[\s()-]/g, ''))) return 'Enter a phone like +7 701 234 56 78 (11 digits).';
+      return '';
+    },
     password: function (value) {
       if (value === '') return 'Password is required.';
       if (value.length < MIN_PASSWORD) return 'Password must be at least ' + MIN_PASSWORD + ' characters (now ' + value.length + ').';
-      if (!/[A-Za-z]/.test(value) || !/[0-9]/.test(value)) return 'Password must contain at least one letter and one number.';
+      if (!/[A-Z]/.test(value)) return 'Add at least one uppercase letter (A–Z).';
+      if (!/[a-z]/.test(value)) return 'Add at least one lowercase letter (a–z).';
+      if (!/[0-9]/.test(value)) return 'Add at least one number (0–9).';
       return '';
     },
     'confirm-password': function (value) {

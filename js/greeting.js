@@ -47,7 +47,17 @@ if (greetingTitle) {
   // name form: update the greeting without reloading the page
   nameForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    userName = nameInput.value.trim();
+    // Final project: JS validation instead of HTML maxlength / required
+    const typed = nameInput.value.trim();
+    const nameError = document.getElementById('name-error');
+    let message = '';
+    if (typed === '') message = 'Please type your name first.';
+    else if (typed.length > 20) message = 'Name is too long — 20 characters max (now ' + typed.length + ').';
+    nameError.textContent = message;
+    nameInput.classList.toggle('is-invalid', message !== '');
+    if (message) { nameInput.focus(); return; }
+
+    userName = typed;
     try { localStorage.setItem('ps-name', userName); } catch (e) { /* ignore */ }
     renderGreeting();
 
