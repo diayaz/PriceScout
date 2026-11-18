@@ -330,7 +330,7 @@ body.popup-open { overflow: hidden; }
 /* Bootstrap's .bg-white is always white — make it follow the theme */
 [data-bs-theme="dark"] .bg-white { background-color: var(--ps-surface) !important; }
 [data-bs-theme="dark"] .best-price { color: #6FD3A8 !important; }
-[data-bs-theme="dark"] .btn-outline-primary { --bs-btn-color: #8FD9B9; --bs-btn-border-color: #3FA37F; }
+
 [data-bs-theme="dark"] #contact-form .form-text { color: #A9B3AE; }
 [data-bs-theme="dark"] .price-table thead th { background-color: #0B120F; }
 
@@ -801,3 +801,65 @@ img.lazy.loaded {                      /* script.js adds .loaded when the photo 
 [data-bs-theme="dark"] .watch-btn:hover { color: #0B120F; background: #6FD3A8; }
 [data-bs-theme="dark"] .watch-btn.watching { color: #1F2937; background: var(--ps-gold); }
 [data-bs-theme="dark"] .auth-aside { background: linear-gradient(160deg, #0B120F, #1F4D3B); }
+
+/* ---------- 28. Solid buttons (teacher feedback: solid instead of outline) ----------
+   .btn-soft     → light-green solid button (filters, small actions); .active = dark green
+   .btn-secondary → neutral beige solid button (Reset / Clear / Show)
+   .btn-light    → cream button on the dark-green navbar and footer
+   .btn-danger   → solid red (Log out, remove, try again)                        */
+.btn-soft {
+  --bs-btn-color: var(--ps-dark);
+  --bs-btn-bg: #DCEFE6;
+  --bs-btn-border-color: #DCEFE6;
+  --bs-btn-hover-color: #FFFFFF;
+  --bs-btn-hover-bg: var(--ps-green);
+  --bs-btn-hover-border-color: var(--ps-green);
+  --bs-btn-active-color: #FFFFFF;
+  --bs-btn-active-bg: var(--ps-dark);
+  --bs-btn-active-border-color: var(--ps-dark);
+  font-weight: 500;
+}
+.btn-secondary {
+  --bs-btn-color: #374151;
+  --bs-btn-bg: #E7E4DA;
+  --bs-btn-border-color: #E7E4DA;
+  --bs-btn-hover-color: #1F2937;
+  --bs-btn-hover-bg: #D6D2C4;
+  --bs-btn-hover-border-color: #D6D2C4;
+  --bs-btn-active-color: #1F2937;
+  --bs-btn-active-bg: #C9C4B4;
+  --bs-btn-active-border-color: #C9C4B4;
+}
+.btn-light {
+  --bs-btn-color: var(--ps-dark);
+  --bs-btn-bg: #F4F1EA;
+  --bs-btn-border-color: #F4F1EA;
+  --bs-btn-hover-color: #1F2937;
+  --bs-btn-hover-bg: var(--ps-gold);
+  --bs-btn-hover-border-color: var(--ps-gold);
+  font-weight: 500;
+}
+.btn-danger {
+  --bs-btn-bg: #C2413B;
+  --bs-btn-border-color: #C2413B;
+  --bs-btn-hover-bg: #A2302B;
+  --bs-btn-hover-border-color: #A2302B;
+}
+.btn-primary { --bs-btn-color: #FFFFFF; --bs-btn-hover-color: #FFFFFF; font-weight: 600; }
+.btn { transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
+.btn-primary:hover, .btn-soft:hover, .btn-warning:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(20, 67, 47, 0.18); }
+
+/* watch button: solid too */
+.watch-btn { background: #DCEFE6; border-color: #DCEFE6; color: var(--ps-dark); }
+
+[data-bs-theme="dark"] .btn-soft {
+  --bs-btn-color: #CFEFE0; --bs-btn-bg: #24493A; --bs-btn-border-color: #24493A;
+  --bs-btn-hover-bg: #3FA37F; --bs-btn-hover-border-color: #3FA37F; --bs-btn-hover-color: #0B120F;
+  --bs-btn-active-bg: #6FD3A8; --bs-btn-active-border-color: #6FD3A8; --bs-btn-active-color: #0B120F;
+}
+[data-bs-theme="dark"] .btn-secondary {
+  --bs-btn-color: #E6E8E3; --bs-btn-bg: #34433C; --bs-btn-border-color: #34433C;
+  --bs-btn-hover-color: #FFFFFF; --bs-btn-hover-bg: #43554C; --bs-btn-hover-border-color: #43554C;
+}
+[data-bs-theme="dark"] .btn-primary { --bs-btn-bg: #2E8F6E; --bs-btn-border-color: #2E8F6E; --bs-btn-hover-bg: #3FA37F; --bs-btn-hover-border-color: #3FA37F; }
+[data-bs-theme="dark"] .watch-btn { background: #24493A; border-color: #24493A; color: #CFEFE0; }

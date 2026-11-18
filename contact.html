@@ -39,7 +39,7 @@
             <li class="nav-item"><a class="nav-link nav-account" id="nav-account" href="login.html">👤 Log in</a></li>
             <li class="nav-item d-flex align-items-center">
               <!-- Assignment 5: Day / Night theme (js/theme.js) -->
-              <button type="button" id="theme-toggle" class="btn btn-sm btn-outline-light rounded-pill px-3">🌙 Night</button>
+              <button type="button" id="theme-toggle" class="btn btn-sm btn-light rounded-pill px-3">🌙 Night</button>
             </li>
           </ul>
         </div>
@@ -142,9 +142,10 @@
                 </div>
               </div>
 
-              <div class="col-12 d-grid gap-2 d-sm-flex pt-2">
-                <button type="submit" id="contact-submit" class="btn btn-primary btn-lg">Register for Alerts</button>
-                <button type="reset" class="btn btn-outline-secondary btn-lg">Clear form</button>
+              <!-- main action on the left, "Clear" far on the right so they are not mixed up -->
+              <div class="col-12 d-flex flex-column-reverse flex-sm-row justify-content-sm-between gap-3 pt-3">
+                <button type="reset" class="btn btn-secondary btn-lg">Clear form</button>
+                <button type="submit" id="contact-submit" class="btn btn-primary btn-lg px-5">Register for Alerts</button>
               </div>
 
               <div class="col-12">
@@ -168,7 +169,7 @@
             <p class="mb-3">No account needed — <button type="button" class="btn btn-link p-0 align-baseline" data-open-popup>subscribe in one step</button>.</p>
             <p class="mb-2 fw-semibold">Questions?</p>
             <p class="mb-0">Email us at <a href="mailto:PriceScout@gmail.com">PriceScout@gmail.com</a>
-              <!-- Assignment 6, Task 8 --><button type="button" class="btn btn-sm btn-outline-primary copy-btn copy-icon ms-1" data-copy="PriceScout@gmail.com" aria-label="Copy email address">📋</button></p>
+              <!-- Assignment 6, Task 8 --><button type="button" class="btn btn-sm btn-soft copy-btn copy-icon ms-1" data-copy="PriceScout@gmail.com" aria-label="Copy email address">📋</button></p>
           </div>
         </div>
 
@@ -186,7 +187,7 @@
           <!-- Task 3: opens the popup subscription form (js/popup.js) -->
           <button type="button" class="btn btn-warning btn-sm fw-semibold px-3" data-open-popup>Subscribe to deals</button>
           <!-- Assignment 5: mute / unmute sound effects (js/sounds.js) -->
-          <button type="button" id="sound-toggle" class="btn btn-outline-light btn-sm px-3" aria-pressed="true">🔊 Sound: On</button>
+          <button type="button" id="sound-toggle" class="btn btn-light btn-sm px-3" aria-pressed="true">🔊 Sound: On</button>
         </div>
       </div>
       <hr class="border-light opacity-25 my-3">

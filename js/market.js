@@ -114,7 +114,7 @@ if (marketGrid) {
     marketGrid.innerHTML =
       '<div class="col-12"><div class="alert alert-danger d-flex flex-wrap align-items-center gap-3 mb-0" role="alert">' +
       '<span>⚠️ Could not load live prices: ' + escapeHtml(message) + '. Check your internet connection.</span>' +
-      '<button type="button" class="btn btn-outline-danger btn-sm ms-auto" id="market-retry">Try again</button></div></div>';
+      '<button type="button" class="btn btn-danger btn-sm ms-auto" id="market-retry">Try again</button></div></div>';
     document.getElementById('market-retry').addEventListener('click', loadProducts);
   }
 
@@ -333,7 +333,7 @@ function renderWatchlist() {
     row.innerHTML = '<img src="' + item.thumbnail + '" alt="" width="56" height="56" class="rounded-2">' +
       '<div class="flex-grow-1"><p class="mb-0 fw-semibold">' + escapeHtml(item.title) + '</p>' +
       '<p class="mb-0 small"><span class="best-price">$' + item.price.toFixed(2) + '</span> · −' + item.discount + '%</p></div>' +
-      '<button type="button" class="btn btn-sm btn-outline-danger remove-watch" data-id="' + item.id + '" aria-label="Remove ' + escapeHtml(item.title) + '">✕</button>';
+      '<button type="button" class="btn btn-sm btn-danger remove-watch" data-id="' + item.id + '" aria-label="Remove ' + escapeHtml(item.title) + '">✕</button>';
     watchlistBox.appendChild(row);
   });
 }
