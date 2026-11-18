@@ -410,7 +410,7 @@ body.popup-open { overflow: hidden; }
   border: 0;
   font-size: 1.6rem;
   line-height: 1;
-  color: #C9CDD2;                     /* empty star */
+  color: #8A9097;                     /* empty star (3:1 contrast) */
   cursor: pointer;
   transition: color 0.15s ease, transform 0.15s ease;
 }
@@ -757,7 +757,7 @@ img.lazy.loaded {                      /* script.js adds .loaded when the photo 
 .market-card:hover .market-img img { transform: scale(1.06); }
 .market-discount { position: absolute; top: 0.75rem; left: 0.75rem; background: var(--ps-gold); color: #1F2937; font-size: 0.85rem; }
 .market-category { color: #6B7280; text-transform: capitalize; }
-.market-rating { color: var(--ps-gold); letter-spacing: 0.05em; }
+.market-rating { color: #A87700; letter-spacing: 0.05em; }
 .market-rating span { color: var(--ps-text); }
 .market-price { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ps-green); }
 .market-old { color: #9CA3AF; }
@@ -863,3 +863,10 @@ img.lazy.loaded {                      /* script.js adds .loaded when the photo 
 }
 [data-bs-theme="dark"] .btn-primary { --bs-btn-bg: #2E8F6E; --bs-btn-border-color: #2E8F6E; --bs-btn-hover-bg: #3FA37F; --bs-btn-hover-border-color: #3FA37F; }
 [data-bs-theme="dark"] .watch-btn { background: #24493A; border-color: #24493A; color: #CFEFE0; }
+
+/* contrast fixes found while testing both themes */
+[data-bs-theme="dark"] .faq-icon { background-color: #1E7A5F; }
+[data-bs-theme="dark"] .text-danger { color: #FF8A80 !important; }
+[data-bs-theme="dark"] .market-rating { color: var(--ps-gold); }
+[data-bs-theme="dark"] .star { color: #7D8781; }
+[data-bs-theme="dark"] .star.filled { color: var(--ps-gold); }

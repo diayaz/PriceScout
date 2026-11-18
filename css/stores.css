@@ -44,7 +44,7 @@
 .store-tag {
   display: inline-block;
   background-color: var(--ps-gold);
-  color: var(--ps-text);
+  color: #1F2937;            /* always dark text on gold — readable in both themes */
   font-weight: 600;
   font-size: 0.8rem;
   border-radius: 999px;
